@@ -6,7 +6,7 @@ last_name varchar(20) not null,
 email varchar(30) not null, 
 phone_number varchar(20), 
 
-constraint student_pk primary key (case_id), 
+primary key (case_id),
 constraint student_email_uk unique(email)
 );
 
@@ -21,6 +21,48 @@ create table employee
     email varchar(30) not null,
     phone_number varchar(20),
 
-    constraint employee_pk primary key (employee_id),
-    constraint employee_case_fk foreign key (case_id) references student(case_id),
-    constraint employee_email_uk unique(email)
+    primary key (employee_id),
+    foreign key (case_id) references student(case_id)
+);
+
+create table item
+(
+    item_id varchar(10),
+    item_name varchar(50) not null,
+    category varchar(30) not null,
+    quantity int not null,
+    price decimal(10,2) not null,
+
+    primary key (item_id)
+)
+
+create table itemcopy 
+( 
+    copy_id varchar(10), 
+    item_id varchar(10), 
+    tag varchar(30) not null,
+    status varchar(20) not null default 'available', 
+    condition varchar(50),
+
+    primary key (copy_id),
+    foreign key (item_id) references item(item_id)
+)
+
+create table rental 
+( 
+    rental_id varchar(10), 
+    item_id varchar(10) not null,
+    item_name varchar(50) not null,
+    renter_case_id varchar(10) not null,
+    employee_id varchar(10) not null,
+    status varchar(20) not null default 'active',
+    checkout_date date not null default current_date,
+    due_date date not null default (current_date + interval '5 days'),
+
+    primary key (rental_id),
+    foreign key (item_id) references item(item_id),
+    foreign key (item_name) references item(item_name),
+    foreign key (renter_case_id) references student(case_id),
+    foreign key (employee_id) references employee(employee_id
+);
+
