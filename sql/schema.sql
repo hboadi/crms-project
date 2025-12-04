@@ -63,6 +63,18 @@ create table rental
     foreign key (item_id) references item(item_id),
     foreign key (item_name) references item(item_name),
     foreign key (renter_case_id) references student(case_id),
-    foreign key (employee_id) references employee(employee_id
+    foreign key (employee_id) references employee(employee_id)
+)
+
+create table return 
+(
+    return_id varchar(10),
+    rental_id varchar(10) not null,
+    return_date date not null default current_date,
+    condition_on_return varchar(50),
+    employee_id varchar(10) not null,
+
+    primary key (return_id),
+    foreign key (rental_id) references rental(rental_id
 );
 
