@@ -34,7 +34,7 @@ create table item
     price decimal(10,2) not null,
 
     primary key (item_id)
-)
+);
 
 create table itemcopy 
 ( 
@@ -46,7 +46,7 @@ create table itemcopy
 
     primary key (copy_id),
     foreign key (item_id) references item(item_id)
-)
+);
 
 create table rental 
 ( 
@@ -57,14 +57,14 @@ create table rental
     employee_id varchar(10) not null,
     status varchar(20) not null default 'active',
     checkout_date date not null default current_date,
-    due_date date not null default (current_date + interval '5 days'),
+    due_date date not null default (current_date ),
 
     primary key (rental_id),
     foreign key (item_id) references item(item_id),
     foreign key (item_name) references item(item_name),
     foreign key (renter_case_id) references student(case_id),
     foreign key (employee_id) references employee(employee_id)
-)
+);
 
 create table return 
 (
@@ -75,6 +75,7 @@ create table return
     employee_id varchar(10) not null,
 
     primary key (return_id),
-    foreign key (rental_id) references rental(rental_id
+    foreign key (rental_id) references rental(rental_id),
+    foreign key (employee_id) references employee(employee_id)
 );
 

@@ -9,8 +9,8 @@ insert into student values
 
 --Insert data into employee table
 INSERT INTO employee VALUES 
-('EMP001', 'STU001', 'John', 'Doe', 'Manager', 'john.doe@email.com', '555-0101'),
-('EMP002', 'STU002', 'Jane', 'Smith', 'Assistant', 'jane.smith@email.com', '555-0102');
+('EMP001', 'jxd123', 'John', 'Doe', 'Manager', 'john.doe@email.com', '555-0101'),
+('EMP002', 'asm456', 'Jane', 'Smith', 'Assistant', 'jane.smith@email.com', '555-0102');
 
 -- Insert data into item table
 INSERT INTO item VALUES 
@@ -26,5 +26,5 @@ INSERT INTO itemcopy VALUES
 
 -- Insert sample rentals
 INSERT INTO rental VALUES 
-('REN001', 'ITM001', 'STU003', 'EMP001', 'active', current_date, current_date + interval '5 days'),
-('REN002', 'ITM002', 'STU002', 'EMP002', 'returned', current_date - interval '10 days', current_date - interval '5 days');
+('REN001', 'ITM001', 'jxd123', 'EMP001', 'active', current_date, current_date ),
+('REN002', 'ITM002', 'asm456', 'EMP002', 'returned', current_date - interval '10 days', current_date ');
