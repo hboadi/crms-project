@@ -1,0 +1,102 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #fafafa;
+}
+
+h1 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: none;
+    background-color: #4287f5;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #2f6bd9;
+}
+
+#output {
+    background: #f2f2f2;
+    padding: 20px;
+    white-space: pre-wrap;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+table {
+    width: 90%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.status-ok {
+    color: green;
+    font-weight: bold;
+}
+
+.status-due {
+    color: orange;
+    font-weight: bold;
+}
+
+.status-overdue {
+    color: red;
+    font-weight: bold;
+}
+
+#checkout-form input {
+    padding: 8px;
+    width: 250px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+/* ---- STATUS COLORS ---- */
+.status-ok {
+    color: green;
+    font-weight: bold;
+}
+
+.status-overdue {
+    color: red;
+    font-weight: bold;
+}
+
+.status-today {
+    color: orange;
+    font-weight: bold;
+}
+
+.return-btn {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.return-btn:hover {
+    background-color: #d93636;
+}
+
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRMS Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <h1>CRMS Dashboard</h1>
+
+    <div class="buttons">
+        <button onclick="loadStudents()">View All Students</button>
+        <button onclick="loadRentals()">View Active Rentals</button>
+        <button onclick="showCheckoutForm()">Checkout Item</button>
+    </div>
+
+    <!-- Dynamic Section Title -->
+    <h2 id="section-title"></h2>
+
+    <!-- Dynamic Table Area -->
+    <div id="table-container"></div>
+
+    <!-- Checkout Form (title removed to prevent duplicates) -->
+    <div id="checkout-form" style="display:none; margin-top:20px;">
+
+        <label>Student Case ID:</label>
+        <input id="case_id" type="text"><br><br>
+
+        <label>Student Name:</label>
+        <input id="student_name" type="text"><br><br>
+
+        <label>Item Name:</label>
+        <input id="item_name" type="text"><br><br>
+
+        <label>Checkout Date:</label>
+        <input id="checkout_date" type="date"><br><br>
+
+        <label>Due Date:</label>
+        <input id="due_date" type="date"><br><br>
+
+        <button onclick="submitCheckout()">Submit Rental</button>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
