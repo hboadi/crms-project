@@ -33,7 +33,7 @@ INSERT INTO item VALUES
 ('ITM003', 'Calculator', 'Electronics', 10, 25.99),
 ('ITM004', 'I-Pad 10th Gen', 'Electronics', 3, 250.00),
 ('ITM005', 'I-Pad 5th Gen', 'Electronics', 3, 379.00),
-('ITM006', 'Vacuum ', 'Cleaning Supply', 5, 200.00),
+('ITM006', 'Vacuum ', 'Cleaning Supplies', 5, 200.00),
 ('ITM007', 'Swiffer WetJet', 'Cleaning Supplies', 7, 25.00),
 ('ITM008', 'Large Pot', 'Cooking Supplies', 5, 35.00),
 ('ITM009', 'Blender', 'Cooking Supplies', 5, 80.00),
@@ -146,8 +146,15 @@ INSERT INTO itemcopy VALUES
 ('CPY066', 'ITM016', 'TENNIS-004', 'available', 'fair');
 
 -- Insert data into rental table
-UPDATE itemcopy SET status = 'rented' WHERE copy_id = 'CPY001'; 
-UPDATE itemcopy SET status = 'rented' WHERE copy_id = 'CPY009';  
+insert into rental values 
+('RNT001', 'ITM001', 'MacBook Pro M5', 'jxd123', 'EMP001', 'active', date('2024-06-01'), date('2024-06-08')),
+('RNT002', 'ITM003', 'Calculator', 'asm456', 'EMP002', 'active', date('2024-06-03'), date('2024-06-10')),
+('RNT003', 'ITM007', 'Swiffer WetJet', 'bkt789', 'EMP003', 'active', date('2024-06-05'), date('2024-06-12'));
 
-UPDATE itemcopy SET status = 'rented' WHERE copy_id = 'CPY001';  
-UPDATE itemcopy SET status = 'rented' WHERE copy_id = 'CPY009';  -- Calculator rented by Alice
+update itemcopy set status = 'checked out' where copy_id in ('CPY001', 'CPY009', 'CPY030');
+
+-- Insert data into return table
+insert into return values
+('RTN001', 'RNT001', date('2024-06-07'), 'good', 'EMP004');
+
+update rental set status = 'returned' where rental_id = 'RNT001';

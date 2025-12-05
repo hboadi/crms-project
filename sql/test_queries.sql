@@ -5,13 +5,7 @@ SELECT item_name, category, price
 FROM item 
 ORDER BY category, price;
 
--- Test 2: Count items by category (like counting shirt sizes)
-SELECT category, COUNT(*) as item_count
-FROM item
-GROUP BY category
-ORDER BY item_count DESC;
-
--- Test 3: Current active rentals with renter details
+-- Test 2: Current active rentals with renter details
 SELECT 
     r.rental_id,
     s.first_name || ' ' || s.last_name AS renter_name,
@@ -28,3 +22,24 @@ JOIN student s ON r.renter_case_id = s.case_id
 JOIN item i ON r.item_id = i.item_id
 WHERE r.status = 'active'
 ORDER BY r.due_date;
+
+-- Test 3: Recent returns with details (similar to active rentals)
+SELECT 
+    rt.return_id,
+    s.first_name || ' ' || s.last_name AS returner_name,
+    r.item_name,
+    r.checkout_date,
+    r.due_date,
+    rt.return_date,
+    CASE 
+        WHEN rt.return_date > r.due_date THEN 'RETURNED LATE'
+        WHEN rt.return_date <= r.due_date THEN 'RETURNED ON TIME'
+    END as return_status,
+    julianday(rt.return_date) - julianday(r.due_date) as days_late,
+    rt.condition_on_return,
+    e.first_name || ' ' || e.last_name AS processed_by_employee
+FROM return rt
+JOIN rental r ON rt.rental_id = r.rental_id
+JOIN student s ON r.renter_case_id = s.case_id
+JOIN employee e ON rt.employee_id = e.employee_id
+ORDER BY rt.return_date DESC;
