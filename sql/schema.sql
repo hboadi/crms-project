@@ -57,11 +57,10 @@ create table rental
     employee_id varchar(10) not null,
     status varchar(20) not null default 'active',
     checkout_date date not null default current_date,
-    due_date date not null default (current_date ),
+    due_date date not null default (date('now', '+7 days')),
 
     primary key (rental_id),
     foreign key (item_id) references item(item_id),
-    foreign key (item_name) references item(item_name),
     foreign key (renter_case_id) references student(case_id),
     foreign key (employee_id) references employee(employee_id)
 );

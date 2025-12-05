@@ -145,12 +145,9 @@ INSERT INTO itemcopy VALUES
 ('CPY065', 'ITM016', 'TENNIS-003', 'available', 'excellent'),
 ('CPY066', 'ITM016', 'TENNIS-004', 'available', 'fair');
 
--- Insert sample rentals 
-INSERT INTO rental VALUES 
-('REN001', 'ITM001', 'jxd123', 'EMP001', 'active', date('now', '-3 days'), date('now', '+2 days')),
-('REN002', 'ITM003', 'asm456', 'EMP002', 'active', date('now', '-1 day'), date('now', '+4 days')),
-('REN003', 'ITM002', 'bkt789', 'EMP003', 'returned', date('now', '-10 days'), date('now', '-5 days')),
-('REN004', 'ITM004', 'hxb327', 'EMP001', 'overdue', date('now', '-8 days'), date('now', '-3 days')),
-('REN005', 'ITM006', 'yxw1650', 'EMP004', 'active', date('now'), date('now', '+5 days')),
-('REN006', 'ITM013', 'zlq25', 'EMP005', 'returned', date('now', '-15 days'), date('now', '-10 days')),
-('REN007', 'ITM015', 'ams123', 'EMP002', 'active', date('now', '-2 days'), date('now', '+3 days'));
+-- Insert data into rental table
+UPDATE itemcopy SET status = 'rented' WHERE copy_id = 'CPY001'; 
+UPDATE itemcopy SET status = 'rented' WHERE copy_id = 'CPY009';  
+
+UPDATE itemcopy SET status = 'rented' WHERE copy_id = 'CPY001';  
+UPDATE itemcopy SET status = 'rented' WHERE copy_id = 'CPY009';  -- Calculator rented by Alice

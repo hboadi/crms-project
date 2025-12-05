@@ -1,16 +1,17 @@
 --Test Queries for CRMS Database to ensure correctness of schema c
 
+-- Test 1: Retrieve all items sorted by category and price (like organizing items by size and color)
 SELECT item_name, category, price  
 FROM item 
 ORDER BY category, price;
 
--- Test 1: Count items by category (like counting shirt sizes)
+-- Test 2: Count items by category (like counting shirt sizes)
 SELECT category, COUNT(*) as item_count
 FROM item
 GROUP BY category
 ORDER BY item_count DESC;
 
--- Test 2: Current active rentals with renter details
+-- Test 3: Current active rentals with renter details
 SELECT 
     r.rental_id,
     s.first_name || ' ' || s.last_name AS renter_name,
