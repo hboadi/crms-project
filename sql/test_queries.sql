@@ -35,7 +35,6 @@ SELECT
         WHEN rt.return_date > r.due_date THEN 'RETURNED LATE'
         WHEN rt.return_date <= r.due_date THEN 'RETURNED ON TIME'
     END as return_status,
-    julianday(rt.return_date) - julianday(r.due_date) as days_late,
     rt.condition_on_return,
     e.first_name || ' ' || e.last_name AS processed_by_employee
 FROM return rt
@@ -43,3 +42,4 @@ JOIN rental r ON rt.rental_id = r.rental_id
 JOIN student s ON r.renter_case_id = s.case_id
 JOIN employee e ON rt.employee_id = e.employee_id
 ORDER BY rt.return_date DESC;
+
