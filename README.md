@@ -173,7 +173,7 @@ The system includes realistic sample data:
 
 ## 👥 Authors
 
-- **Humphrey Boadi** -
+- **Humphrey Boadi** 
 - **Chiebuka Onyejesi** 
 - **Wayzaro Taylor** 
 
